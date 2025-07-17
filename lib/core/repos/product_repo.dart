@@ -4,4 +4,5 @@ import 'package:fruiteshubdashboard2/errors/failure.dart';
 
 abstract class ProductRepo {
   Future<Either<Failure, void>> addProduct(ProductEntity addProductInputEntity);
+  Future<Either<Failure, void>> addCategory(CategoryEntity addCategorynputEntity);
 }

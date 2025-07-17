@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruiteshubdashboard2/features/add_product/presentation/view/add_product_view.dart';
 import 'package:fruiteshubdashboard2/features/orders/presentation/views/orders_view.dart';
 import '../../../core/widgets/custom_button.dart';
+import '../../categories/presentation/widgets/Add category.dart';
 
 class DashboardViewBody extends StatelessWidget {
   const DashboardViewBody({super.key});
@@ -43,6 +44,19 @@ class DashboardViewBody extends StatelessWidget {
                 text: "➕  Add Product",
                 onPressed: () {
                   Navigator.pushNamed(context, AddProductView.routeName);
+                },
+              ),
+            ), const SizedBox(height: 40),
+            SizedBox(
+              width: double.infinity,
+              child: CustomButton(
+                text: "➕  Add Category",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AddCategoryView()),
+                  );
+
                 },
               ),
             ),

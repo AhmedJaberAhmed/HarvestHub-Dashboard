@@ -20,7 +20,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  String? name, code, description;
+  String? name, code, description,categoryCode;
   num? price, expirationMonths, numOfCalories, unitAmount;
   File? image;
   bool isFeatured = false;
@@ -65,6 +65,12 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               CustomTextFormField(
                 onSaved: (value) => numOfCalories = num.tryParse(value ?? ""),
                 hintText: "Number of Calories",
+                textInputType: TextInputType.number,
+              ),
+              const SizedBox(height: 16),
+              CustomTextFormField(
+                onSaved: (value) => categoryCode= value?.toUpperCase(),
+                hintText: "Category Code",
                 textInputType: TextInputType.number,
               ),
               const SizedBox(height: 16),
@@ -121,6 +127,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                     }
 
                     final input = ProductEntity(
+                      categoryCode: categoryCode!,
                       reviews: [],
                       isOrganic: isOrganic,
                       expirationsMonths: expirationMonths!.toInt(),

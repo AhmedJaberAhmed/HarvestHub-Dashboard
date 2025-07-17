@@ -6,6 +6,7 @@ import 'package:fruiteshubdashboard2/features/add_product/domain/entities/add_pr
 class ProductModel {
   final String name;
   final String code;
+  final String categoryCode;
   final String description;
   final num price;
   final int sellingCount;
@@ -24,6 +25,7 @@ class ProductModel {
   ProductModel({
     required this.expirationsMonths,
     required this.reviews,
+    required this.categoryCode,
     required this.numberOfCalories,
     required this.unitAmount,
     required this.name,
@@ -44,6 +46,7 @@ class ProductModel {
        reviews: entity.reviews.map((e) => ReviewModel.fromEntity( e)).toList(),
       name: entity.name,
       isOrganic:entity.isOrganic,
+      categoryCode: entity.categoryCode,
       code: entity.code,
       description: entity.description,
       price: entity.price,
@@ -61,6 +64,117 @@ class ProductModel {
       'name': name,
       "sellingCount":sellingCount,
       'code': code,
+      "categoryCode":categoryCode,
+      'description': description,
+      'price': price,
+      'isFeatured': isFeatured,
+      'imageUrl': imageUrl,
+      'expirationsMonths': expirationsMonths,
+      'numberOfCalories': numberOfCalories,
+      'unitAmount': unitAmount,
+      'isOrganic': isOrganic,
+      'avgRating': avgRating,
+      'ratingCount': ratingCount,
+      'reviews':reviews.map((e)=>e.toJson()).toList()
+    };
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class CategoryModel {
+  final String name;
+  final String code;
+ // final String categoryCode;
+  final String description;
+  final num price;
+  final int sellingCount;
+  final File image;
+  final bool isFeatured;
+  String? imageUrl;
+  final int expirationsMonths;
+  final bool isOrganic;
+  final int numberOfCalories;
+  final num avgRating;
+  final num ratingCount;
+  final int unitAmount;
+  final List<ReviewModel> reviews;
+
+
+  CategoryModel({
+    required this.expirationsMonths,
+    required this.reviews,
+   // required this.categoryCode,
+    required this.numberOfCalories,
+    required this.unitAmount,
+    required this.name,
+    required this.code,
+    required this.description,
+    required this.price,
+    required this.image,
+    required this.isFeatured,
+    this.sellingCount=0,
+    this.imageUrl,
+    required this.isOrganic ,
+    this.avgRating = 0,
+    this.ratingCount = 0,
+  });
+
+  factory CategoryModel.fromEntity(CategoryEntity entity) {
+    return CategoryModel(
+      reviews: entity.reviews.map((e) => ReviewModel.fromEntity( e)).toList(),
+      name: entity.name,
+      isOrganic:entity.isOrganic,
+    //  categoryCode: entity.categoryCode,
+      code: entity.code,
+      description: entity.description,
+      price: entity.price,
+      image: entity.image,
+      isFeatured: entity.isFeatured,
+      imageUrl: entity.imageUrl,
+      expirationsMonths: entity.expirationsMonths,
+      numberOfCalories: entity.numberOfCalories,
+      unitAmount: entity.unitAmount,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      "sellingCount":sellingCount,
+      'code': code,
+     // "categoryCode":categoryCode,
       'description': description,
       'price': price,
       'isFeatured': isFeatured,

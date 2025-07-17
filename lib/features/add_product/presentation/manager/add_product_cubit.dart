@@ -35,5 +35,28 @@ class AddProductCubit extends Cubit<AddProductState> {
       },
     );
   }
+  Future<void> addCategory(CategoryEntity addCategoryInputEntity) async {
+    emit(AddProductLoading());
 
+    var result = await imagesRepo.uploadImage(addCategoryInputEntity.image);
+
+    result.fold(
+          (failure) { // Changed 'f' to 'failure' for clarity
+        emit(AddProductFailure(failure.message)); // Ensure 'Failure' has 'message'
+      },
+          (url) async {
+            addCategoryInputEntity.imageUrl = url;
+        var productResult = await productsRepo.addCategory(addCategoryInputEntity);
+
+        productResult.fold(
+              (failure) { // Use consistent property name
+            emit(AddProductFailure( ""));
+          },
+              (r) {
+            emit(AddProductSuccess());
+          },
+        );
+      },
+    );
+  }
 }

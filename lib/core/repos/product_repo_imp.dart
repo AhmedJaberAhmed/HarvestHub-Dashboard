@@ -23,4 +23,15 @@ class ProductRepoImp implements ProductRepo {
       return Left(ServerFailure("Failed to add product"));
     }
   }
-}
+
+  @override
+  Future<Either<Failure, void>> addCategory(CategoryEntity addCategorynputEntity) async{
+    try {
+      await databaseService.addData(
+          path: BackendEndPoints.categoriesCollection,
+          data: CategoryModel.fromEntity(addCategorynputEntity).toJson());
+      return Right(null);
+    } catch (e) {
+      return Left(ServerFailure("Failed to add product"));
+    }
+}}
