@@ -19,17 +19,31 @@ A modern e-commerce application built with **Flutter and Firebase**, featuring a
 
 ## 📸 Project Preview
 
+
+<h2 align="center">📸 Project Preview</h2>
+
 <div align="center">
 
-<a href="86e7b49f-4f59-4657-b1b3-1de32c3a617f.png">
+  <h3>🛍️ E-Commerce App & Admin Dashboard</h3>
+
   <img
     src="86e7b49f-4f59-4657-b1b3-1de32c3a617f.png"
-    alt="Flutter E-Commerce App and Admin Dashboard Mockup"
+    alt="E-Commerce App and Admin Dashboard"
     width="100%"
   />
-</a>
+
+  <br><br>
+
+  <h3>📱 Additional App Screens</h3>
+
+  <img
+    src="431c5653-f35b-420d-b5ef-d7774aa825ac.png"
+    alt="Flutter E-Commerce App Additional Screens"
+    width="100%"
+  />
 
 </div>
+
 
 ---
 
